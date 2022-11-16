@@ -1,5 +1,6 @@
 function renderNav() {
 
+    // render nav elements:
     const header = document.querySelector('header');
     const nav = document.createElement('nav');
     header.appendChild(nav);
@@ -51,6 +52,14 @@ function renderNav() {
                 logoImg.classList.add('nav-logo');
                 logoImg.src = 'img/logo/round.png';
                 logoContainer.appendChild(logoImg);
+
+    // add click listener to close icon:
+    closeIcon.addEventListener('click', closeNav);
+}
+
+function closeNav() {
+    const nav = document.querySelector('nav');
+    nav.remove();
 }
 
 (function addInitialListeners() {
