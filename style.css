@@ -62,7 +62,7 @@ body {
 
     .jordan,
     .walters {
-        letter-spacing: -0.2px;
+        font-weight: 100;
         cursor: pointer;
     }
 
@@ -96,8 +96,8 @@ body {
     /* nav */
     nav {
         z-index: 2;
+        width: 100%;
         position: absolute;
-        width: 105vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -320,7 +320,7 @@ body {
 
 
         /* nav items: */
-        .nav-item:hover {
+        .nav-item:hover:not(:first-child) {
             letter-spacing: calc(0.7*var(--rvv));
             padding: calc(0.2*var(--rvv));
             font-size: calc(var(--rvv));
@@ -400,11 +400,11 @@ body {
             background-image: url('img/hover/drawing.jpg');
             background-size: cover;
         }
-        .close {
-            transition: transform 90ms ease-in-out;
+        .close-icon {
+            transition: transform 50ms linear;
         }
-        .close:hover {
-            transform: scale(1.5);
+        .close-icon:hover {
+            transform: scale(1.2);
         }
 
         /* nav */
