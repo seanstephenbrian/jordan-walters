@@ -29,76 +29,122 @@ const Effects = (function() {
 
     function assignColorsToNavElements() {
         if (window.innerWidth > 749) {
-            const root = document.documentElement;
+            const nav = document.querySelector('nav');
     
-            root.style.setProperty('--photography-hover', getRandomColor());
-            root.style.setProperty('--architecture-hover', getRandomColor());
-            root.style.setProperty('--sculpture-hover', getRandomColor());
-            root.style.setProperty('--furniture-hover', getRandomColor());
-            root.style.setProperty('--drawing-hover', getRandomColor());
-        
-            root.style.setProperty('--photography-hover-border', getRandomColor());
-            root.style.setProperty('--architecture-hover-border', getRandomColor());
-            root.style.setProperty('--sculpture-hover-border', getRandomColor());
-            root.style.setProperty('--furniture-hover-border', getRandomColor());
-            root.style.setProperty('--drawing-hover-border', getRandomColor());
+            nav.style.setProperty('--photography-hover', getRandomColor());
+            nav.style.setProperty('--architecture-hover', getRandomColor());
+            nav.style.setProperty('--sculpture-hover', getRandomColor());
+            nav.style.setProperty('--furniture-hover', getRandomColor());
+            nav.style.setProperty('--drawing-hover', getRandomColor());
+
+            nav.style.setProperty('--photography-hover-border', getRandomColor());
+            nav.style.setProperty('--architecture-hover-border', getRandomColor());
+            nav.style.setProperty('--sculpture-hover-border', getRandomColor());
+            nav.style.setProperty('--furniture-hover-border', getRandomColor());
+            nav.style.setProperty('--drawing-hover-border', getRandomColor());
         }
     }
 
-    function assignColorsToHomeElements() {
+    function assignColorsToPageElements() {
         if (window.innerWidth > 749) {
-            const root = document.documentElement;
+            const main = document.querySelector('main');
 
-            root.style.setProperty('--y-divider-hover', getRandomColor());
+            main.style.setProperty('--y-divider-hover', getRandomColor());
 
-            root.style.setProperty('--x-divider-1-hover', getRandomColor());
-            root.style.setProperty('--x-divider-2-hover', getRandomColor());
-            root.style.setProperty('--x-divider-3-hover', getRandomColor());
-            root.style.setProperty('--x-divider-5-hover', getRandomColor());
-            root.style.setProperty('--x-divider-6-hover', getRandomColor());
+            main.style.setProperty('--x-divider-1-hover', getRandomColor());
+            main.style.setProperty('--x-divider-2-hover', getRandomColor());
+            main.style.setProperty('--x-divider-3-hover', getRandomColor());
+            main.style.setProperty('--x-divider-5-hover', getRandomColor());
+            main.style.setProperty('--x-divider-6-hover', getRandomColor());
 
-            root.style.setProperty('--project-1-hover', getRandomColor());
-            root.style.setProperty('--project-2-hover', getRandomColor());
-            root.style.setProperty('--project-3-hover', getRandomColor());
-            root.style.setProperty('--project-4-hover', getRandomColor());
-            root.style.setProperty('--project-5-hover', getRandomColor());
-            root.style.setProperty('--project-6-hover', getRandomColor());
-            root.style.setProperty('--project-7-hover', getRandomColor());
+            main.style.setProperty('--project-1-hover', getRandomColor());
+            main.style.setProperty('--project-2-hover', getRandomColor());
+            main.style.setProperty('--project-3-hover', getRandomColor());
+            main.style.setProperty('--project-4-hover', getRandomColor());
+            main.style.setProperty('--project-5-hover', getRandomColor());
+            main.style.setProperty('--project-6-hover', getRandomColor());
+            main.style.setProperty('--project-7-hover', getRandomColor());
 
-            root.style.setProperty('--bg-1-hover', getRandomColor());
-            root.style.setProperty('--bg-2-hover', getRandomColor());
-            root.style.setProperty('--bg-3-hover', getRandomColor());
-            root.style.setProperty('--bg-4-hover', getRandomColor());
-            root.style.setProperty('--bg-5-hover', getRandomColor());
-            root.style.setProperty('--bg-6-hover', getRandomColor());
-            root.style.setProperty('--bg-7-hover', getRandomColor());
+            main.style.setProperty('--bg-1-hover', getRandomColor());
+            main.style.setProperty('--bg-2-hover', getRandomColor());
+            main.style.setProperty('--bg-3-hover', getRandomColor());
+            main.style.setProperty('--bg-4-hover', getRandomColor());
+            main.style.setProperty('--bg-5-hover', getRandomColor());
+            main.style.setProperty('--bg-6-hover', getRandomColor());
+            main.style.setProperty('--bg-7-hover', getRandomColor());
 
-            root.style.setProperty('--project-title-1-hover', getRandomColor());
-            root.style.setProperty('--project-title-2-hover', getRandomColor());
-            root.style.setProperty('--project-title-3-hover', getRandomColor());
-            root.style.setProperty('--project-title-4-hover', getRandomColor());
-            root.style.setProperty('--project-title-5-hover', getRandomColor());
-            root.style.setProperty('--project-title-6-hover', getRandomColor());
-            root.style.setProperty('--project-title-7-hover', getRandomColor());
+            main.style.setProperty('--project-title-1-hover', getRandomColor());
+            main.style.setProperty('--project-title-2-hover', getRandomColor());
+            main.style.setProperty('--project-title-3-hover', getRandomColor());
+            main.style.setProperty('--project-title-4-hover', getRandomColor());
+            main.style.setProperty('--project-title-5-hover', getRandomColor());
+            main.style.setProperty('--project-title-6-hover', getRandomColor());
+            main.style.setProperty('--project-title-7-hover', getRandomColor());
 
-            root.style.setProperty('--project-title-1-text', getRandomColor());
-            root.style.setProperty('--project-title-2-text', getRandomColor());
-            root.style.setProperty('--project-title-3-text', getRandomColor());
-            root.style.setProperty('--project-title-4-text', getRandomColor());
-            root.style.setProperty('--project-title-5-text', getRandomColor());
-            root.style.setProperty('--project-title-6-text', getRandomColor());
-            root.style.setProperty('--project-title-7-text', getRandomColor());
+            main.style.setProperty('--project-title-1-text', getRandomColor());
+            main.style.setProperty('--project-title-2-text', getRandomColor());
+            main.style.setProperty('--project-title-3-text', getRandomColor());
+            main.style.setProperty('--project-title-4-text', getRandomColor());
+            main.style.setProperty('--project-title-5-text', getRandomColor());
+            main.style.setProperty('--project-title-6-text', getRandomColor());
+            main.style.setProperty('--project-title-7-text', getRandomColor());
         }
     }
+
+    // function assignColorsToPageElements() {
+    //     if (window.innerWidth > 749) {
+    //         const root = document.documentElement;
+
+    //         root.style.setProperty('--y-divider-hover', getRandomColor());
+
+    //         root.style.setProperty('--x-divider-1-hover', getRandomColor());
+    //         root.style.setProperty('--x-divider-2-hover', getRandomColor());
+    //         root.style.setProperty('--x-divider-3-hover', getRandomColor());
+    //         root.style.setProperty('--x-divider-5-hover', getRandomColor());
+    //         root.style.setProperty('--x-divider-6-hover', getRandomColor());
+
+    //         root.style.setProperty('--project-1-hover', getRandomColor());
+    //         root.style.setProperty('--project-2-hover', getRandomColor());
+    //         root.style.setProperty('--project-3-hover', getRandomColor());
+    //         root.style.setProperty('--project-4-hover', getRandomColor());
+    //         root.style.setProperty('--project-5-hover', getRandomColor());
+    //         root.style.setProperty('--project-6-hover', getRandomColor());
+    //         root.style.setProperty('--project-7-hover', getRandomColor());
+
+    //         root.style.setProperty('--bg-1-hover', getRandomColor());
+    //         root.style.setProperty('--bg-2-hover', getRandomColor());
+    //         root.style.setProperty('--bg-3-hover', getRandomColor());
+    //         root.style.setProperty('--bg-4-hover', getRandomColor());
+    //         root.style.setProperty('--bg-5-hover', getRandomColor());
+    //         root.style.setProperty('--bg-6-hover', getRandomColor());
+    //         root.style.setProperty('--bg-7-hover', getRandomColor());
+
+    //         root.style.setProperty('--project-title-1-hover', getRandomColor());
+    //         root.style.setProperty('--project-title-2-hover', getRandomColor());
+    //         root.style.setProperty('--project-title-3-hover', getRandomColor());
+    //         root.style.setProperty('--project-title-4-hover', getRandomColor());
+    //         root.style.setProperty('--project-title-5-hover', getRandomColor());
+    //         root.style.setProperty('--project-title-6-hover', getRandomColor());
+    //         root.style.setProperty('--project-title-7-hover', getRandomColor());
+
+    //         root.style.setProperty('--project-title-1-text', getRandomColor());
+    //         root.style.setProperty('--project-title-2-text', getRandomColor());
+    //         root.style.setProperty('--project-title-3-text', getRandomColor());
+    //         root.style.setProperty('--project-title-4-text', getRandomColor());
+    //         root.style.setProperty('--project-title-5-text', getRandomColor());
+    //         root.style.setProperty('--project-title-6-text', getRandomColor());
+    //         root.style.setProperty('--project-title-7-text', getRandomColor());
+    //     }
+    // }
 
     function randomizeMargins(selector) {
         const elements = document.querySelectorAll(selector);
         elements.forEach(element => {
             const top = Math.floor(Math.random() * 60);
-            const right = Math.floor(Math.random() * 30);
+            const right = Math.floor(Math.random() * 15);
             const bottom = Math.floor(Math.random() * 3);
-            const left = Math.floor(Math.random() * 3);
-            element.style.margin = `${top}px ${right}px ${bottom}px ${left}px`;
+            // const left = Math.floor(Math.random() * 2);
+            element.style.margin = `${top}px ${right}px ${bottom}px 0`;
         })
         
     }
@@ -108,7 +154,7 @@ const Effects = (function() {
         addBorderEffectListeners,
         randomizeMargins,
         assignColorsToNavElements,
-        assignColorsToHomeElements
+        assignColorsToPageElements
     }
 
 })();
@@ -180,7 +226,7 @@ const Render = (function() {
         `;
 
         Effects.randomizeMargins('.project');
-        Effects.assignColorsToHomeElements();
+        // Effects.assignColorsToPageElements();
 
     }
 
@@ -259,8 +305,6 @@ const Render = (function() {
         body.style.overflowY = 'hidden';
     }
 
-    Effects.assignColorsToNavElements();
-
     // not strictly necessary, but . . .
     function removeNavColorAssignments() {
         const root = document.documentElement;
@@ -307,8 +351,9 @@ const Render = (function() {
         // render homepage:
         Render.home();
 
-        // add dynamic border effects to header elements:
+        // add dynamic border effects to header & main elements:
         Effects.addBorderEffectListeners('header *');
+        Effects.addBorderEffectListeners('main *');
 
         // add click listener to header elements:
         const logo = document.querySelector('.logo-container');

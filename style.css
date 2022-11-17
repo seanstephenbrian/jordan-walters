@@ -223,6 +223,34 @@ body {
             background-image: url('img/hover/photography.jpg');
             background-size: cover;
         }
+
+            .third-derivative .bg::before {
+                background-image: url('img/hover/third-derivative.jpg');
+            }
+
+            .remainder .bg::before {
+                background-image: url('img/hover/remainder.jpg');
+            }
+
+            .one-by-one .bg::before {
+                background-image: url('img/hover/one-by-one.jpg');
+            }
+
+            .druids .bg::before {
+                background-image: url('img/hover/druids.jpg');
+            }
+
+            .offroad .bg::before {
+                background-image: url('img/hover/offroad.jpg');
+            }
+
+            .greenwood .bg::before {
+                background-image: url('img/hover/greenwood.jpg');
+            }
+
+            .dirty-delta .bg::before {
+                background-image: url('img/hover/dirty-delta.jpg');
+            }
     
         .project-1 {
             grid-area: project-1;
