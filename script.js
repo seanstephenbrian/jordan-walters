@@ -107,26 +107,24 @@ const Render = (function() {
 // module for special effects:
 const Effects = (function() {
 
-    function delayedBorderReveal(e) {
+    function applyBorderEffect(e) {
         const element = e.target;
-    
+
+        element.style.color = getRandomColor();
+        element.style.border = '0.5px solid ' + getRandomColor();
+
         setTimeout(() => {
-            element.style.color = getRandomColor();
-            element.style.border = '0.5px solid ' + getRandomColor();
-            
-            setTimeout(() => {
-                element.style.color = '';
-                element.style.border = '';
-            }, 400);
-    
-        }, 100);
+            element.style.color = '';
+            element.style.border = '';
+        }, 300);
+
     }
 
     function addBorderEffectListeners(selector) {
         if (window.innerWidth > 749) {
             const elements = document.querySelectorAll(selector);
             elements.forEach(element => {
-                element.addEventListener('mouseover', delayedBorderReveal);
+                element.addEventListener('mouseover', applyBorderEffect);
             });   
         }
     }

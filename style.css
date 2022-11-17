@@ -35,7 +35,7 @@ time, mark, audio, video {
     --sculpture-hover-border: red;
     --furniture-hover-border: red;
     --drawing-hover-border: red;
-    
+
 }
 
 html,
@@ -47,224 +47,235 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
-header {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr calc(var(--rvv)) 1fr;
-    grid-column-gap: calc(0.3*var(--rvv));
-    grid-template-rows: calc(2*var(--rvv));
-    grid-template-areas:
-        "jordan logo walters";
-}
+/* header */
+    header {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr calc(var(--rvv)) 1fr;
+        grid-column-gap: calc(0.3*var(--rvv));
+        grid-template-rows: calc(2*var(--rvv));
+        grid-template-areas:
+            "jordan logo walters";
+    }
 
-.jordan,
-.walters {
-    letter-spacing: -0.2px;
-    cursor: pointer;
-}
+    .jordan,
+    .walters {
+        letter-spacing: -0.2px;
+        cursor: pointer;
+    }
 
-.jordan {
-    margin-left: calc(var(--rvv));
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
+    .jordan {
+        margin-left: calc(var(--rvv));
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
 
-.logo-container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
+    .logo-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
 
-.logo {
-    max-height: 40%;
-    padding: calc(0.1*var(--rvv));
-    border-radius: 50%;
-}
+        .logo {
+            max-height: 40%;
+            padding: calc(0.1*var(--rvv));
+            border-radius: 50%;
+        }
 
-.walters {
-    margin-right: calc(var(--rvv));
-    display: flex;
-    align-items: center;
-}
+    .walters {
+        margin-right: calc(var(--rvv));
+        display: flex;
+        align-items: center;
+    }
 
-nav {
-    z-index: 2;
-    position: absolute;
-    width: 105vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-}
+    /* nav */
+    nav {
+        z-index: 2;
+        position: absolute;
+        width: 105vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+    }
 
-.nav-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+        .nav-items {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.nav-item {
-    height: calc(1.2*var(--rvv));
-    text-align: center;
-    margin-bottom: 8%;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            .nav-item {
+                height: calc(1.2*var(--rvv));
+                text-align: center;
+                margin-bottom: 8%;
+                cursor: pointer;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
 
-.close {
-    margin: calc(0.3*var(--rvv)) 0 0;
-    height: calc(0.7*var(--rvv));
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-}
+            .close {
+                margin: calc(0.3*var(--rvv)) 0 0;
+                height: calc(0.7*var(--rvv));
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
 
-.close-icon {
-    height: 100%;
-}
+                .close-icon {
+                    height: 100%;
+                }
 
-.nav-logo {
-    height: calc(0.6*var(--rvv));
-}
+            /* .logo-container {} */
+
+                .nav-logo {
+                    height: calc(0.6*var(--rvv));
+                }
 
 
 /* desktop effects: */
 @media screen and (min-width: 750px) {
-    header span {
-        transition: margin 0.4s ease-in-out;
-    }
+
+    /* header */
     header .logo-container {
         transition: transform 0.4s ease-in-out;
     }
+
+    header span {
+        transition: margin 0.4s ease-in-out;
+    }
+    
     header:hover .jordan span {
         margin: 0 8.2%;
     }
+
     header:hover .logo-container {
         transform: scale(1.3) rotate(610deg);
     }
+
     header:hover .walters span {
         margin: 0 6.9%;
     }
 
-    .nav-item:hover {
-        letter-spacing: calc(0.7*var(--rvv));
-        padding: calc(0.2*var(--rvv));
-        /* font-style: italic; */
-        font-size: calc(var(--rvv));
-    }
-    .photography:hover {
-        color: var(--photography-hover);
-        border: 0.5px solid var(--photography-hover-border);
-    }
-    .photography:hover::before {
-        z-index: -1;
-        position: absolute;
-        content: "";
-        top: calc(-0.2*var(--nav-hover));
-        left: 15vw;
-        height: calc(var(--nav-hover));
-        width: calc(var(--nav-hover));
-        background-image: url('img/hover/photography.jpg');
-        background-size: cover;
-    }
-    .architecture:hover {
-        color: var(--architecture-hover);
-        border: 0.5px solid var(--architecture-hover-border);
-    }
-    .architecture:hover::before {
-        z-index: -1;
-        position: absolute;
-        content: "";
-        top: calc(-0.5*var(--nav-hover));
-        left: 12vw;
-        height: calc(var(--nav-hover));
-        width: calc(var(--nav-hover));
-        background-image: url('img/hover/architecture.jpg');
-        background-size: cover;
-    }
-    .sculpture:hover {
-        color: var(--sculpture-hover);
-        border: 0.5px solid var(--sculpture-hover-border);
-    }
-    .sculpture:hover::before {
-        z-index: -1;
-        position: absolute;
-        content: "";
-        top: calc(-0.1*var(--nav-hover));
-        left: 6vw;
-        height: calc(var(--nav-hover));
-        width: calc(var(--nav-hover));
-        background-image: url('img/hover/sculpture.jpg');
-        background-size: cover;
-    }
-    .furniture:hover {
-        color: var(--furniture-hover);
-        border: 0.5px solid var(--furniture-hover-border);
-    }
-    .furniture:hover::before {
-        z-index: -1;
-        position: absolute;
-        content: "";
-        top: calc(-0.25*var(--nav-hover));
-        left: 20vw;
-        height: calc(var(--nav-hover));
-        width: calc(var(--nav-hover));
-        background-image: url('img/hover/furniture.jpg');
-        background-size: cover;
-    }
-    .drawing:hover {
-        color: var(--drawing-hover);
-        border: 0.5px solid var(--drawing-hover-border);
-    }
-    .drawing:hover::before {
-        z-index: -1;
-        position: absolute;
-        content: "";
-        top: calc(-0.5*var(--nav-hover));
-        left: 3vw;
-        height: calc(var(--nav-hover));
-        width: calc(var(--nav-hover));
-        background-image: url('img/hover/drawing.jpg');
-        background-size: cover;
-    }
 
-    .close {
-        transition: transform 90ms ease-in-out;
-    }
-    .close:hover {
-        transform: scale(1.5);
-    }
+        /* nav items: */
+        .nav-item:hover {
+            letter-spacing: calc(0.7*var(--rvv));
+            padding: calc(0.2*var(--rvv));
+            /* font-style: italic; */
+            font-size: calc(var(--rvv));
+        }
+        .photography:hover {
+            color: var(--photography-hover);
+            border: 0.5px solid var(--photography-hover-border);
+        }
+        .photography:hover::before {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            top: calc(-0.2*var(--nav-hover));
+            left: 15vw;
+            height: calc(var(--nav-hover));
+            width: calc(var(--nav-hover));
+            background-image: url('img/hover/photography.jpg');
+            background-size: cover;
+        }
+        .architecture:hover {
+            color: var(--architecture-hover);
+            border: 0.5px solid var(--architecture-hover-border);
+        }
+        .architecture:hover::before {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            top: calc(-0.5*var(--nav-hover));
+            left: 12vw;
+            height: calc(var(--nav-hover));
+            width: calc(var(--nav-hover));
+            background-image: url('img/hover/architecture.jpg');
+            background-size: cover;
+        }
+        .sculpture:hover {
+            color: var(--sculpture-hover);
+            border: 0.5px solid var(--sculpture-hover-border);
+        }
+        .sculpture:hover::before {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            top: calc(-0.1*var(--nav-hover));
+            left: 6vw;
+            height: calc(var(--nav-hover));
+            width: calc(var(--nav-hover));
+            background-image: url('img/hover/sculpture.jpg');
+            background-size: cover;
+        }
+        .furniture:hover {
+            color: var(--furniture-hover);
+            border: 0.5px solid var(--furniture-hover-border);
+        }
+        .furniture:hover::before {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            top: calc(-0.25*var(--nav-hover));
+            left: 20vw;
+            height: calc(var(--nav-hover));
+            width: calc(var(--nav-hover));
+            background-image: url('img/hover/furniture.jpg');
+            background-size: cover;
+        }
+        .drawing:hover {
+            color: var(--drawing-hover);
+            border: 0.5px solid var(--drawing-hover-border);
+        }
+        .drawing:hover::before {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            top: calc(-0.5*var(--nav-hover));
+            left: 3vw;
+            height: calc(var(--nav-hover));
+            width: calc(var(--nav-hover));
+            background-image: url('img/hover/drawing.jpg');
+            background-size: cover;
+        }
+        .close {
+            transition: transform 90ms ease-in-out;
+        }
+        .close:hover {
+            transform: scale(1.5);
+        }
 
-    nav .logo-container {
-        transition: transform 0.8s ease-in-out;
-    }
-    nav .logo-container:hover {
-        transform: rotate(700deg);
-    }
+        /* nav */
+        nav .logo-container {
+            transition: transform 0.8s ease-in-out;
+        }
+        nav .logo-container:hover {
+            transform: rotate(700deg);
+        }
+        nav .nav-item {
+            transition: margin 0.2s ease-in-out;
+        }
+        nav:hover .nav-item {
+            margin-bottom: 7vh;
+        }
+        nav:hover .architecture {
+            margin-right: 40vw;
+        }
+        nav:hover .sculpture {
+            margin-left: 40vw;
+        }
+        nav:hover .drawing {
+            margin-right: 40vw;
+        }
 
-    nav .nav-item {
-        transition: margin 0.2s ease-in-out;
-    }
-    nav:hover .nav-item {
-        margin-bottom: 7vh;
-    }
-    nav:hover .architecture {
-        margin-right: 40vw;
-    }
-    nav:hover .sculpture {
-        margin-left: 40vw;
-    }
-    nav:hover .drawing {
-        margin-right: 40vw;
-    }
-    
 }
