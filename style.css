@@ -39,6 +39,9 @@ time, mark, audio, video {
 
 html,
 body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
     box-sizing: border-box;
     font-family: Helvetica, sans-serif;
 }
@@ -246,7 +249,7 @@ nav {
         transition: margin 0.2s ease-in-out;
     }
     nav:hover .nav-item {
-        margin-bottom: 9vh;
+        margin-bottom: 7vh;
     }
     nav:hover .architecture {
         margin-right: 40vw;

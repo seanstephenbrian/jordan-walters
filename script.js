@@ -1,27 +1,33 @@
-function showElementBorders(selector) {
+function addBorderEffectListeners(selector) {
     if (window.innerWidth > 749) {
         const elements = document.querySelectorAll(selector);
         elements.forEach(element => {
             element.addEventListener('mouseover', delayedBorderReveal);
-        });
-        function delayedBorderReveal(e) {
-            const element = e.target;
-    
-            setTimeout(() => {
-                element.style.color = '#FF0000';
-                element.style.border = '0.5px solid #FF0000';
-                
-                setTimeout(() => {
-                    element.style.color = '';
-                    element.style.border = '';
-                }, 400);
-    
-            }, 100);
-        }
+        });   
     }
 }
 
-showElementBorders('header *');
+
+function delayedBorderReveal(e) {
+    const element = e.target;
+
+    setTimeout(() => {
+        element.style.color = getRandomColor();
+        element.style.border = '0.5px solid ' + getRandomColor();
+        
+        setTimeout(() => {
+            element.style.color = '';
+            element.style.border = '';
+        }, 400);
+
+    }, 100);
+}
+
+function getRandomColor() {
+    return '#' + Math.floor(Math.random()*16777215).toString(16);
+}
+
+addBorderEffectListeners('header *');
 
 
 function renderNav() {
@@ -83,14 +89,24 @@ function renderNav() {
     closeIcon.addEventListener('click', closeNav);
     logoImg.addEventListener('click', closeNav);
 
-    showElementBorders('.close-icon');
-    showElementBorders('.nav-logo');
+    addBorderEffectListeners('.close-icon');
+    addBorderEffectListeners('.nav-logo');
+
+    const html = document.querySelector('html');
+    html.style.overflowY = 'hidden';
+    const body = document.querySelector('body');
+    body.style.overflowY = 'hidden';
 
 }
 
 function closeNav() {
     const nav = document.querySelector('nav');
     nav.remove();
+
+    const html = document.querySelector('html');
+    html.style.overflowY = 'initial';
+    const body = document.querySelector('body');
+    body.style.overflowY = 'initial';
 }
 
 (function addInitialListeners() {
