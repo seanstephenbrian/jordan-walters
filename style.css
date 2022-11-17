@@ -165,9 +165,12 @@ body {
                 ".                  .           .           .               ."
                 "project-4      project-4       .           .               ."
                 "project-4      project-4       .           .               .";
+            
         }
 
         .project {
+            border: 1px solid red;
+            padding: calc(0.5*var(--rvv));
             width: 30vw;
             max-width: var(--project-img-max);
             height: 30vw;
@@ -182,12 +185,15 @@ body {
             max-width: var(--project-img-max);
             height: 30vw;
             max-height: var(--project-img-max);
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .bg::before {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: calc(0.5*var(--rvv));
+            left: calc(0.5*var(--rvv));
             content: "";
             width: 30vw;
             max-width: var(--project-img-max);
