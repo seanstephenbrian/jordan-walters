@@ -20,6 +20,10 @@ const Render = (function() {
     // nav:
     function nav() {
 
+        // hide content in <main> section:
+        const main = document.querySelector('main');
+        main.style.display = 'none';
+
         // render nav elements:
         const header = document.querySelector('header');
         const nav = document.createElement('nav');
@@ -89,29 +93,49 @@ const Render = (function() {
     }
 
     function assignColorsToNavElements() {
+        if (window.innerWidth > 749) {
+            const root = document.documentElement;
+    
+            root.style.setProperty('--photography-hover', Effects.getRandomColor());
+            root.style.setProperty('--architecture-hover', Effects.getRandomColor());
+            root.style.setProperty('--sculpture-hover', Effects.getRandomColor());
+            root.style.setProperty('--furniture-hover', Effects.getRandomColor());
+            root.style.setProperty('--drawing-hover', Effects.getRandomColor());
+        
+            root.style.setProperty('--photography-hover-border', Effects.getRandomColor());
+            root.style.setProperty('--architecture-hover-border', Effects.getRandomColor());
+            root.style.setProperty('--sculpture-hover-border', Effects.getRandomColor());
+            root.style.setProperty('--furniture-hover-border', Effects.getRandomColor());
+            root.style.setProperty('--drawing-hover-border', Effects.getRandomColor());
+        }
+    }
+
+    // not strictly necessary, but . . .
+    function removeNavColorAssignments() {
         const root = document.documentElement;
+
+        root.style.setProperty('--photography-hover', '');
+        root.style.setProperty('--architecture-hover', '');
+        root.style.setProperty('--sculpture-hover', '');
+        root.style.setProperty('--furniture-hover', '');
+        root.style.setProperty('--drawing-hover', '');
     
-        root.style.setProperty('--photography-hover', Effects.getRandomColor());
-        root.style.setProperty('--architecture-hover', Effects.getRandomColor());
-        root.style.setProperty('--sculpture-hover', Effects.getRandomColor());
-        root.style.setProperty('--furniture-hover', Effects.getRandomColor());
-        root.style.setProperty('--drawing-hover', Effects.getRandomColor());
-    
-        root.style.setProperty('--photography-hover-border', Effects.getRandomColor());
-        root.style.setProperty('--architecture-hover-border', Effects.getRandomColor());
-        root.style.setProperty('--sculpture-hover-border', Effects.getRandomColor());
-        root.style.setProperty('--furniture-hover-border', Effects.getRandomColor());
-        root.style.setProperty('--drawing-hover-border', Effects.getRandomColor());
+        root.style.setProperty('--photography-hover-border', '');
+        root.style.setProperty('--architecture-hover-border', '');
+        root.style.setProperty('--sculpture-hover-border', '');
+        root.style.setProperty('--furniture-hover-border', '');
+        root.style.setProperty('--drawing-hover-border', '');
     }
 
     function closeNav() {
         const nav = document.querySelector('nav');
         nav.remove();
+
+        // show main content again:
+        const main = document.querySelector('main');
+        main.style.display = '';
     
-        const html = document.querySelector('html');
-        html.style.overflowY = 'initial';
-        const body = document.querySelector('body');
-        body.style.overflowY = 'initial';
+        removeNavColorAssignments();
     }
 
     return {
