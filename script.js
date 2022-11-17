@@ -13,6 +13,7 @@ const Render = (function() {
                         </span>
                     </div>
                 </div>
+                <div class="x-divider x-divider-1"></div>
                 <div class="project project-2 left-column remainder">
                     <div class="bg">
                         <span class="project-title">
@@ -20,6 +21,7 @@ const Render = (function() {
                         </span>
                     </div>
                 </div>
+                <div class="x-divider x-divider-2"></div>
                 <div class="project project-3 left-column one-by-one">
                     <div class="bg">
                         <span class="project-title">
@@ -27,6 +29,7 @@ const Render = (function() {
                         </span>
                     </div>
                 </div>
+                <div class="x-divider x-divider-3"></div>
                 <div class="project project-4 left-column druids">
                     <div class="bg">
                         <span class="project-title">
@@ -34,6 +37,7 @@ const Render = (function() {
                         </span>
                     </div>
                 </div>
+                <div class="y-divider"></div>
                 <div class="project project-5 offroad">
                     <div class="bg">
                         <span class="project-title">
@@ -41,6 +45,7 @@ const Render = (function() {
                         </span>
                     </div>
                 </div>
+                <div class="x-divider x-divider-5"></div>
                 <div class="project project-6 greenwood">
                     <div class="bg">
                         <span class="project-title">
@@ -48,6 +53,7 @@ const Render = (function() {
                         </span>
                     </div>
                 </div>
+                <div class="x-divider x-divider-6"></div>
                 <div class="project project-7 dirty-delta">
                     <div class="bg">
                         <span class="project-title">

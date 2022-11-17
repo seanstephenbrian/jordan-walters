@@ -154,18 +154,25 @@ body {
             grid-template-rows: repeat(10, calc(2*var(--grid-gap)));
             row-gap: calc(var(--grid-gap));
             grid-template-areas:
-                "project-1      project-1       .       project-5       project-5"
-                "project-1      project-1       .       project-5       project-5"
-                ".                  .           .           .               ."
-                "project-2      project-2       .       project-6       project-6"
-                "project-2      project-2       .       project-6       project-6"
-                ".                  .           .           .               ."
-                "project-3      project-3       .       project-7       project-7"
-                "project-3      project-3       .       project-7       project-7"
-                ".                  .           .           .               ."
-                "project-4      project-4       .           .               ."
-                "project-4      project-4       .           .               .";
+                "project-1              project-1           y-divider       project-5       project-5"
+                "project-1              project-1           y-divider       project-5       project-5"
+                "x-divider-1            x-divider-1         y-divider       x-divider-5     x-divider-5"
+                "project-2              project-2           y-divider       project-6       project-6"
+                "project-2              project-2           y-divider       project-6       project-6"
+                "x-divider-2            x-divider-2         y-divider       x-divider-6     x-divider-6"
+                "project-3              project-3           y-divider       project-7       project-7"
+                "project-3              project-3           y-divider       project-7       project-7"
+                "x-divider-3            x-divider-3         y-divider           .               ."
+                "project-4              project-4           y-divider           .               ."
+                "project-4              project-4           y-divider           .               .";
             
+        }
+
+        .y-divider:hover {
+            border: 1px solid red;
+        }
+        .x-divider:hover {
+            border: 1px solid blue;
         }
 
         .project {
@@ -246,8 +253,27 @@ body {
             grid-area: project-7;
         }
 
+        .y-divider {
+            grid-area: y-divider;
+        }
+        .x-divider-1 {
+            grid-area: x-divider-1;
+        }
+        .x-divider-2 {
+            grid-area: x-divider-2;
+        }
+        .x-divider-3 {
+            grid-area: x-divider-3;
+        }
+        .x-divider-5 {
+            grid-area: x-divider-5;
+        }
+        .x-divider-6 {
+            grid-area: x-divider-6;
+        }
 
-        
+
+
         .third-derivative::before {
             
         }
