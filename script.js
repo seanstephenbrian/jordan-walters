@@ -1,3 +1,118 @@
+// module for special effects:
+const Effects = (function() {
+
+    function applyBorderEffect(e) {
+        const element = e.target;
+
+        element.style.color = getRandomColor();
+        element.style.border = '0.5px solid ' + getRandomColor();
+
+        setTimeout(() => {
+            element.style.color = '';
+            element.style.border = '';
+        }, 120);
+
+    }
+
+    function addBorderEffectListeners(selector) {
+        if (window.innerWidth > 749) {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.addEventListener('mouseover', applyBorderEffect);
+            });   
+        }
+    }
+
+    function getRandomColor() {
+        return '#' + Math.floor(Math.random()*16777215).toString(16);
+    }
+
+    function assignColorsToNavElements() {
+        if (window.innerWidth > 749) {
+            const root = document.documentElement;
+    
+            root.style.setProperty('--photography-hover', getRandomColor());
+            root.style.setProperty('--architecture-hover', getRandomColor());
+            root.style.setProperty('--sculpture-hover', getRandomColor());
+            root.style.setProperty('--furniture-hover', getRandomColor());
+            root.style.setProperty('--drawing-hover', getRandomColor());
+        
+            root.style.setProperty('--photography-hover-border', getRandomColor());
+            root.style.setProperty('--architecture-hover-border', getRandomColor());
+            root.style.setProperty('--sculpture-hover-border', getRandomColor());
+            root.style.setProperty('--furniture-hover-border', getRandomColor());
+            root.style.setProperty('--drawing-hover-border', getRandomColor());
+        }
+    }
+
+    function assignColorsToHomeElements() {
+        if (window.innerWidth > 749) {
+            const root = document.documentElement;
+
+            root.style.setProperty('--y-divider-hover', getRandomColor());
+
+            root.style.setProperty('--x-divider-1-hover', getRandomColor());
+            root.style.setProperty('--x-divider-2-hover', getRandomColor());
+            root.style.setProperty('--x-divider-3-hover', getRandomColor());
+            root.style.setProperty('--x-divider-5-hover', getRandomColor());
+            root.style.setProperty('--x-divider-6-hover', getRandomColor());
+
+            root.style.setProperty('--project-1-hover', getRandomColor());
+            root.style.setProperty('--project-2-hover', getRandomColor());
+            root.style.setProperty('--project-3-hover', getRandomColor());
+            root.style.setProperty('--project-4-hover', getRandomColor());
+            root.style.setProperty('--project-5-hover', getRandomColor());
+            root.style.setProperty('--project-6-hover', getRandomColor());
+            root.style.setProperty('--project-7-hover', getRandomColor());
+
+            root.style.setProperty('--bg-1-hover', getRandomColor());
+            root.style.setProperty('--bg-2-hover', getRandomColor());
+            root.style.setProperty('--bg-3-hover', getRandomColor());
+            root.style.setProperty('--bg-4-hover', getRandomColor());
+            root.style.setProperty('--bg-5-hover', getRandomColor());
+            root.style.setProperty('--bg-6-hover', getRandomColor());
+            root.style.setProperty('--bg-7-hover', getRandomColor());
+
+            root.style.setProperty('--project-title-1-hover', getRandomColor());
+            root.style.setProperty('--project-title-2-hover', getRandomColor());
+            root.style.setProperty('--project-title-3-hover', getRandomColor());
+            root.style.setProperty('--project-title-4-hover', getRandomColor());
+            root.style.setProperty('--project-title-5-hover', getRandomColor());
+            root.style.setProperty('--project-title-6-hover', getRandomColor());
+            root.style.setProperty('--project-title-7-hover', getRandomColor());
+
+            root.style.setProperty('--project-title-1-text', getRandomColor());
+            root.style.setProperty('--project-title-2-text', getRandomColor());
+            root.style.setProperty('--project-title-3-text', getRandomColor());
+            root.style.setProperty('--project-title-4-text', getRandomColor());
+            root.style.setProperty('--project-title-5-text', getRandomColor());
+            root.style.setProperty('--project-title-6-text', getRandomColor());
+            root.style.setProperty('--project-title-7-text', getRandomColor());
+        }
+    }
+
+    function randomizeMargins(selector) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            const top = Math.floor(Math.random() * 60);
+            const right = Math.floor(Math.random() * 30);
+            const bottom = Math.floor(Math.random() * 3);
+            const left = Math.floor(Math.random() * 3);
+            element.style.margin = `${top}px ${right}px ${bottom}px ${left}px`;
+        })
+        
+    }
+
+    return {
+        getRandomColor,
+        addBorderEffectListeners,
+        randomizeMargins,
+        assignColorsToNavElements,
+        assignColorsToHomeElements
+    }
+
+})();
+
 // module for page rendering functions:
 const Render = (function() {
 
@@ -7,56 +122,56 @@ const Render = (function() {
         main.innerHTML = `
             <div class="home-projects">
                 <div class="project project-1 left-column third-derivative">
-                    <div class="bg">
-                        <span class="project-title">
+                    <div class="bg bg-1">
+                        <span class="project-title project-title-1">
                             third derivative
                         </span>
                     </div>
                 </div>
                 <div class="x-divider x-divider-1"></div>
                 <div class="project project-2 left-column remainder">
-                    <div class="bg">
-                        <span class="project-title">
+                    <div class="bg bg-2">
+                        <span class="project-title project-title-2">
                             remainder
                         </span>
                     </div>
                 </div>
                 <div class="x-divider x-divider-2"></div>
                 <div class="project project-3 left-column one-by-one">
-                    <div class="bg">
-                        <span class="project-title">
+                    <div class="bg bg-3">
+                        <span class="project-title project-title-3">
                             one by one
                         </span>
                     </div>
                 </div>
                 <div class="x-divider x-divider-3"></div>
                 <div class="project project-4 left-column druids">
-                    <div class="bg">
-                        <span class="project-title">
+                    <div class="bg bg-4">
+                        <span class="project-title project-title-4">
                             druids
                         </span>
                     </div>
                 </div>
                 <div class="y-divider"></div>
                 <div class="project project-5 right-column offroad">
-                    <div class="bg">
-                        <span class="project-title">
+                    <div class="bg bg-5">
+                        <span class="project-title project-title-5">
                             OFFROAD
                         </span>
                     </div>
                 </div>
                 <div class="x-divider x-divider-5"></div>
                 <div class="project project-6 right-column greenwood">
-                    <div class="bg">
-                        <span class="project-title">
+                    <div class="bg bg-6">
+                        <span class="project-title project-title-6">
                             greenwood
                         </span>
                     </div>
                 </div>
                 <div class="x-divider x-divider-6"></div>
                 <div class="project project-7 right-column dirty-delta">
-                    <div class="bg">
-                        <span class="project-title">
+                    <div class="bg bg-7">
+                        <span class="project-title project-title-7">
                             dirty delta
                         </span>
                     </div>
@@ -65,6 +180,7 @@ const Render = (function() {
         `;
 
         Effects.randomizeMargins('.project');
+        Effects.assignColorsToHomeElements();
 
     }
 
@@ -128,7 +244,7 @@ const Render = (function() {
                     logoImg.src = 'img/logo/round.png';
                     logoContainer.appendChild(logoImg);
 
-        assignColorsToNavElements();
+        Effects.assignColorsToNavElements();
 
         // add click listener to close icon and JW icon:
         closeIcon.addEventListener('click', closeNav);
@@ -143,23 +259,7 @@ const Render = (function() {
         body.style.overflowY = 'hidden';
     }
 
-    function assignColorsToNavElements() {
-        if (window.innerWidth > 749) {
-            const root = document.documentElement;
-    
-            root.style.setProperty('--photography-hover', Effects.getRandomColor());
-            root.style.setProperty('--architecture-hover', Effects.getRandomColor());
-            root.style.setProperty('--sculpture-hover', Effects.getRandomColor());
-            root.style.setProperty('--furniture-hover', Effects.getRandomColor());
-            root.style.setProperty('--drawing-hover', Effects.getRandomColor());
-        
-            root.style.setProperty('--photography-hover-border', Effects.getRandomColor());
-            root.style.setProperty('--architecture-hover-border', Effects.getRandomColor());
-            root.style.setProperty('--sculpture-hover-border', Effects.getRandomColor());
-            root.style.setProperty('--furniture-hover-border', Effects.getRandomColor());
-            root.style.setProperty('--drawing-hover-border', Effects.getRandomColor());
-        }
-    }
+    Effects.assignColorsToNavElements();
 
     // not strictly necessary, but . . .
     function removeNavColorAssignments() {
@@ -202,61 +302,13 @@ const Render = (function() {
 
 })();
 
-// module for special effects:
-const Effects = (function() {
-
-    function applyBorderEffect(e) {
-        const element = e.target;
-
-        element.style.color = getRandomColor();
-        element.style.border = '0.5px solid ' + getRandomColor();
-
-        setTimeout(() => {
-            element.style.color = '';
-            element.style.border = '';
-        }, 120);
-
-    }
-
-    function addBorderEffectListeners(selector) {
-        if (window.innerWidth > 749) {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.addEventListener('mouseover', applyBorderEffect);
-            });   
-        }
-    }
-
-    function getRandomColor() {
-        return '#' + Math.floor(Math.random()*16777215).toString(16);
-    }
-
-    function randomizeMargins(selector) {
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(element => {
-            const top = Math.floor(Math.random() * 60);
-            const right = Math.floor(Math.random() * 10);
-            const bottom = Math.floor(Math.random() * 3);
-            const left = Math.floor(Math.random() * 10);
-            element.style.margin = `${top}px ${right}px ${bottom}px ${left}px`;
-        })
-        
-    }
-
-    addBorderEffectListeners('header *');
-
-    return {
-        getRandomColor,
-        addBorderEffectListeners,
-        randomizeMargins
-    }
-
-})();
-
 // on page load:
 (function() {
         // render homepage:
         Render.home();
+
+        // add dynamic border effects to header elements:
+        Effects.addBorderEffectListeners('header *');
 
         // add click listener to header elements:
         const logo = document.querySelector('.logo-container');

@@ -143,6 +143,9 @@ body {
                 }
 
     /* main content */
+    main {
+        overflow-x: hidden;
+    }
 
         /* home */
         .home-projects {
@@ -261,10 +264,6 @@ body {
         .x-divider-6 {
             grid-area: x-divider-6;
         }
-
-        .third-derivative::before {
-            
-        }
     
 
 /* desktop effects: */
@@ -296,7 +295,6 @@ body {
         .nav-item:hover {
             letter-spacing: calc(0.7*var(--rvv));
             padding: calc(0.2*var(--rvv));
-            /* font-style: italic; */
             font-size: calc(var(--rvv));
         }
         .photography:hover {
@@ -406,17 +404,77 @@ body {
 
     /* main content: */
     .y-divider:hover {
-        border: 1px solid red;
+        border: 0.5px solid var(--y-divider-hover);
     }
     .x-divider:hover {
-        border: 1px solid blue;
+        border-width: 1px;
+        border-style: solid;
     }
+        .x-divider-1:hover {
+            border-color: var(--x-divider-1-hover);
+        }
+        .x-divider-2:hover {
+            border-color: var(--x-divider-2-hover);
+        }
+        .x-divider-3:hover {
+            border-color: var(--x-divider-3-hover);
+        }
+        .x-divider-5:hover {
+            border-color: var(--x-divider-5-hover);
+        }
+        .x-divider-6:hover {
+            border-color: var(--x-divider-6-hover);
+        }
     .project:hover {
-        border: 1px solid red;
+        border-width: 0.5px;
+        border-style: solid;
     }
+        .project-1:hover {
+            border-color: var(--project-1-hover);
+        }
+        .project-2:hover {
+            border-color: var(--project-2-hover);
+        }
+        .project-3:hover {
+            border-color: var(--project-3-hover);
+        }
+        .project-4:hover {
+            border-color: var(--project-4-hover);
+        }
+        .project-5:hover {
+            border-color: var(--project-5-hover);
+        }
+        .project-6:hover {
+            border-color: var(--project-6-hover);
+        }
+        .project-7:hover {
+            border-color: var(--project-7-hover);
+        }
     .bg:hover {
-        border: 1px solid red;
+        border-width: 1px;
+        border-style: solid;
     }
+        .bg-1:hover {
+            border-color: var(--bg-1-hover);
+        }
+        .bg-2:hover {
+            border-color: var(--bg-2-hover);
+        }
+        .bg-3:hover {
+            border-color: var(--bg-3-hover);
+        }
+        .bg-4:hover {
+            border-color: var(--bg-4-hover);
+        }
+        .bg-5:hover {
+            border-color: var(--bg-5-hover);
+        }
+        .bg-6:hover {
+            border-color: var(--bg-6-hover);
+        }
+        .bg-7:hover {
+            border-color: var(--bg-7-hover);
+        }
     .bg::before {
         z-index: 1;
     }
@@ -429,9 +487,39 @@ body {
     }
     .project-title:hover {
         color: black;
-        font-size: calc(0.8*var(--rvv));
-        letter-spacing: calc(0.5*var(--rvv));
-        border: 1px solid red;
+        border-width: 0.5px;
+        border-style: solid;
+        letter-spacing: calc(0.4*var(--rvv));
+        padding: calc(0.2*var(--rvv));
+        font-size: calc(var(--rvv));
+        font-weight: normal;
     }
-
+        .project-title-1:hover {
+            border-color: var(--project-title-1-hover);
+            color: var(--project-title-1-text);
+        }
+        .project-title-2:hover {
+            border-color: var(--project-title-2-hover);
+            color: var(--project-title-2-text);
+        }
+        .project-title-3:hover {
+            border-color: var(--project-title-3-hover);
+            color: var(--project-title-3-text);
+        }
+        .project-title-4:hover {
+            border-color: var(--project-title-4-hover);
+            color: var(--project-title-4-text);
+        }
+        .project-title-5:hover {
+            border-color: var(--project-title-5-hover);
+            color: var(--project-title-5-text);
+        }
+        .project-title-6:hover {
+            border-color: var(--project-title-6-hover);
+            color: var(--project-title-6-text);
+        }
+        .project-title-7:hover {
+            border-color: var(--project-title-7-hover);
+            color: var(--project-title-7-text);
+        }
 }
