@@ -1,7 +1,23 @@
 // module for page rendering functions:
 const Render = (function() {
 
-    // nav-related methods:
+    // home:
+    function home() {
+        const main = document.querySelector('main');
+        main.innerHTML = `
+            <div class="home-projects">
+                <div class="project third-derivative">third derivative</div>
+                <div class="project remainder">remainder</div>
+                <div class="project one-by-one">one by one</div>
+                <div class="project druids">druids</div>
+                <div class="project offroad">OFFROAD</div>
+                <div class="project greenwood">greenwood</div>
+                <div class="project dirty-delta">dirty delta</div>
+            </div>
+        `;
+    }
+
+    // nav:
     function nav() {
 
         // render nav elements:
@@ -99,6 +115,7 @@ const Render = (function() {
     }
 
     return {
+        home,
         nav
     }
 
@@ -116,7 +133,7 @@ const Effects = (function() {
         setTimeout(() => {
             element.style.color = '';
             element.style.border = '';
-        }, 300);
+        }, 105);
 
     }
 
@@ -142,8 +159,11 @@ const Effects = (function() {
 
 })();
 
-// IIFE for code to run on page load:
-(function addInitialsListeners() {
+// on page load:
+(function() {
+        // render homepage:
+        Render.home();
+
         // add click listener to header elements:
         const logo = document.querySelector('.logo-container');
         logo.addEventListener('click', Render.nav);
