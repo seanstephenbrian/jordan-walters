@@ -6,15 +6,58 @@ const Render = (function() {
         const main = document.querySelector('main');
         main.innerHTML = `
             <div class="home-projects">
-                <div class="project third-derivative">third derivative</div>
-                <div class="project remainder">remainder</div>
-                <div class="project one-by-one">one by one</div>
-                <div class="project druids">druids</div>
-                <div class="project offroad">OFFROAD</div>
-                <div class="project greenwood">greenwood</div>
-                <div class="project dirty-delta">dirty delta</div>
+                <div class="project project-1 left-column third-derivative">
+                    <div class="bg">
+                        <span class="project-title">
+                            third derivative
+                        </span>
+                    </div>
+                </div>
+                <div class="project project-2 left-column remainder">
+                    <div class="bg">
+                        <span class="project-title">
+                            remainder
+                        </span>
+                    </div>
+                </div>
+                <div class="project project-3 left-column one-by-one">
+                    <div class="bg">
+                        <span class="project-title">
+                            one by one
+                        </span>
+                    </div>
+                </div>
+                <div class="project project-4 left-column druids">
+                    <div class="bg">
+                        <span class="project-title">
+                            druids
+                        </span>
+                    </div>
+                </div>
+                <div class="project project-5 offroad">
+                    <div class="bg">
+                        <span class="project-title">
+                            OFFROAD
+                        </span>
+                    </div>
+                </div>
+                <div class="project project-6 greenwood">
+                    <div class="bg">
+                        <span class="project-title">
+                            greenwood
+                        </span>
+                    </div>
+                </div>
+                <div class="project project-7 dirty-delta">
+                    <div class="bg">
+                        <span class="project-title">
+                            dirty delta
+                        </span>
+                    </div>
+                </div>
             </div>
         `;
+
     }
 
     // nav:
@@ -134,6 +177,12 @@ const Render = (function() {
         // show main content again:
         const main = document.querySelector('main');
         main.style.display = '';
+
+        // allow y-axis scrolling again:
+        const html = document.querySelector('html');
+        html.style.overflowY = '';
+        const body = document.querySelector('body');
+        body.style.overflowY = '';
     
         removeNavColorAssignments();
     }
@@ -186,7 +235,7 @@ const Effects = (function() {
 // on page load:
 (function() {
         // render homepage:
-        // Render.home();
+        Render.home();
 
         // add click listener to header elements:
         const logo = document.querySelector('.logo-container');

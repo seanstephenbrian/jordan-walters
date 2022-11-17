@@ -23,8 +23,8 @@ time, mark, audio, video {
     --rvv: calc(1rem + 1vw + 1vh);
 
     --nav-hover: calc(5*var(--rvv));
-
     --project-img-max: calc(5*var(--rvv));
+    --grid-gap: calc(0.9*var(--rvv));
 
     --photography-hover: red;
     --architecture-hover: red;
@@ -37,13 +37,12 @@ time, mark, audio, video {
     --sculpture-hover-border: red;
     --furniture-hover-border: red;
     --drawing-hover-border: red;
-
 }
 
 html,
 body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
     box-sizing: border-box;
     font-family: Helvetica, sans-serif;
@@ -151,8 +150,9 @@ body {
             margin-left: 5vw;
             margin-right: 5vw;
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(10, calc(2*var(--rvv)));
+            grid-template-columns: repeat(2, 1fr) calc(1.2*var(--grid-gap)) repeat(2, 1fr);
+            grid-template-rows: repeat(10, calc(2*var(--grid-gap)));
+            row-gap: calc(var(--grid-gap));
             grid-template-areas:
                 "project-1      project-1       .       project-5       project-5"
                 "project-1      project-1       .       project-5       project-5"
@@ -169,7 +169,6 @@ body {
         }
 
         .project {
-            border: 1px solid red;
             padding: calc(0.5*var(--rvv));
             width: 30vw;
             max-width: var(--project-img-max);
@@ -177,6 +176,14 @@ body {
             max-height: var(--project-img-max);
             position: relative;
             cursor: pointer;
+        }
+
+        .project:hover {
+            border: 1px solid red;
+        }
+
+        .left-column {
+            justify-self: end;
         }
         
         .bg {
@@ -188,6 +195,10 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .bg:hover {
+            border: 1px solid red;
         }
 
         .bg::before {
@@ -207,12 +218,11 @@ body {
             display: none;
         }
 
-        /* .project-1::before,
-        .project-2::before,
-        .project-3::before,
-        .project-4::before {
-            left: 10vw;
-        } */
+        .project-title:hover {
+            font-size: calc(0.8*var(--rvv));
+            letter-spacing: calc(0.5*var(--rvv));
+            border: 1px solid red;
+        }
 
         .project-1 {
             grid-area: project-1;
@@ -236,14 +246,10 @@ body {
             grid-area: project-7;
         }
 
+
         
-        
-
-
-
-
         .third-derivative::before {
-            background-image: url('img/hover/photography.jpg');
+            
         }
     
 
