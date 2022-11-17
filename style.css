@@ -24,7 +24,7 @@ time, mark, audio, video {
 
     --nav-hover: calc(5*var(--rvv));
     --project-img-max: calc(5*var(--rvv));
-    --grid-gap: calc(0.9*var(--rvv));
+    --grid: calc(0.9*var(--rvv));
 
     --photography-hover: red;
     --architecture-hover: red;
@@ -150,9 +150,9 @@ body {
             margin-left: 5vw;
             margin-right: 5vw;
             display: grid;
-            grid-template-columns: repeat(2, 1fr) calc(1.2*var(--grid-gap)) repeat(2, 1fr);
-            grid-template-rows: repeat(10, calc(2*var(--grid-gap)));
-            row-gap: calc(var(--grid-gap));
+            grid-template-columns: repeat(2, 1fr) calc(1.2*var(--grid)) repeat(2, 1fr);
+            grid-template-rows: repeat(2, 2fr) 0.5fr repeat(2, 2fr) 0.5fr repeat(2, 2fr) 0.5fr repeat(2, 2fr);
+            row-gap: calc(var(--grid));
             grid-template-areas:
                 "project-1              project-1           y-divider       project-5       project-5"
                 "project-1              project-1           y-divider       project-5       project-5"
