@@ -133,7 +133,7 @@ const Effects = (function() {
         setTimeout(() => {
             element.style.color = '';
             element.style.border = '';
-        }, 105);
+        }, 120);
 
     }
 
@@ -162,7 +162,7 @@ const Effects = (function() {
 // on page load:
 (function() {
         // render homepage:
-        Render.home();
+        // Render.home();
 
         // add click listener to header elements:
         const logo = document.querySelector('.logo-container');

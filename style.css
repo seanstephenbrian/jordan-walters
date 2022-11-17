@@ -47,7 +47,7 @@ body {
     font-family: Helvetica, sans-serif;
 }
 
-/* header */
+    /* header */
     header {
         position: relative;
         display: grid;
@@ -139,6 +139,49 @@ body {
                 .nav-logo {
                     height: calc(0.6*var(--rvv));
                 }
+
+    /* main content */
+
+        /* home */
+        .home-projects {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(10, 8vh);
+            grid-template-areas:
+                "project-1      project-1       .       project-5       project-5"
+                "project-1      project-1       .       project-5       project-5"
+                ".                  .           .           .               ."
+                "project-2      project-2       .       project-6       project-6"
+                "project-2      project-2       .       project-6       project-6"
+                ".                  .           .           .               ."
+                "project-3      project-3       .       project-7       project-7"
+                "project-3      project-3       .       project-7       project-7"
+                ".                  .           .           .               ."
+                "project-4      project-4       .           .               ."
+                "project-4      project-4       .           .               .";
+        }
+
+        .project-1 {
+            grid-area: project-1;
+        }
+        .project-2 {
+            grid-area: project-2;
+        }
+        .project-3 {
+            grid-area: project-3;
+        }
+        .project-4 {
+            grid-area: project-4;
+        }
+        .project-5 {
+            grid-area: project-5;
+        }
+        .project-6 {
+            grid-area: project-6;
+        }
+        .project-7 {
+            grid-area: project-7;
+        }
 
 
 /* desktop effects: */
