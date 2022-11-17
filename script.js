@@ -1,3 +1,29 @@
+function showElementBorders(selector) {
+    if (window.innerWidth > 749) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            element.addEventListener('mouseover', delayedBorderReveal);
+        });
+        function delayedBorderReveal(e) {
+            const element = e.target;
+    
+            setTimeout(() => {
+                element.style.color = '#FF0000';
+                element.style.border = '0.5px solid #FF0000';
+                
+                setTimeout(() => {
+                    element.style.color = '';
+                    element.style.border = '';
+                }, 400);
+    
+            }, 100);
+        }
+    }
+}
+
+showElementBorders('header *');
+
+
 function renderNav() {
 
     // render nav elements:
@@ -53,8 +79,13 @@ function renderNav() {
                 logoImg.src = 'img/logo/round.png';
                 logoContainer.appendChild(logoImg);
 
-    // add click listener to close icon:
+    // add click listener to close icon and JW icon:
     closeIcon.addEventListener('click', closeNav);
+    logoImg.addEventListener('click', closeNav);
+
+    showElementBorders('.close-icon');
+    showElementBorders('.nav-logo');
+
 }
 
 function closeNav() {

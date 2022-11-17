@@ -24,11 +24,17 @@ time, mark, audio, video {
 
     --nav-hover: calc(5*var(--rvv));
 
-    --photography-hover: #15d000;
-    --architecture-hover: rgb(19, 0, 225);
+    /* --photography-hover: #0065d0;
+    --architecture-hover: rgb(225, 191, 0);
     --sculpture-hover: rgb(242, 0, 255);
     --furniture-hover: rgb(255, 0, 0);
-    --drawing-hover: rgb(0, 217, 199);
+    --drawing-hover: #3bc300; */
+
+    --photography-hover: red;
+    --architecture-hover: red;
+    --sculpture-hover: red;
+    --furniture-hover: red;
+    --drawing-hover: red;
 }
 
 html,
@@ -80,10 +86,9 @@ header {
 }
 
 nav {
-    border: 1px solid blue;
     z-index: 2;
     position: absolute;
-    width: 100vw;
+    width: 105vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -99,11 +104,14 @@ nav {
 }
 
 .nav-item {
-    height: calc(0.7*var(--rvv));
+    height: calc(1.2*var(--rvv));
     text-align: center;
-    margin-bottom: 10%;
+    margin-bottom: 8%;
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close {
@@ -133,20 +141,21 @@ nav {
         transition: transform 0.4s ease-in-out;
     }
     header:hover .jordan span {
-        margin: 0 8%;
+        margin: 0 8.2%;
     }
     header:hover .logo-container {
         transform: scale(1.3) rotate(610deg);
     }
     header:hover .walters span {
-        margin: 0 7%;
+        margin: 0 6.9%;
     }
 
     .nav-item:hover {
-        font-style: italic;
+        letter-spacing: calc(0.7*var(--rvv));
+        padding: calc(0.2*var(--rvv));
+        /* font-style: italic; */
         font-size: calc(var(--rvv));
-        font-weight: 400;
-        font-family: 'Courier New', Courier, monospace;
+        border: 0.5px solid red;
     }
     .photography:hover {
         color: var(--photography-hover);
@@ -170,7 +179,7 @@ nav {
         position: absolute;
         content: "";
         top: calc(-0.5*var(--nav-hover));
-        left: -3vw;
+        left: 12vw;
         height: calc(var(--nav-hover));
         width: calc(var(--nav-hover));
         background-image: url('img/hover/architecture.jpg');
@@ -184,7 +193,7 @@ nav {
         position: absolute;
         content: "";
         top: calc(-0.1*var(--nav-hover));
-        left: -6vw;
+        left: 6vw;
         height: calc(var(--nav-hover));
         width: calc(var(--nav-hover));
         background-image: url('img/hover/sculpture.jpg');
@@ -211,8 +220,8 @@ nav {
         z-index: -1;
         position: absolute;
         content: "";
-        top: calc(-0.25*var(--nav-hover));
-        left: 1vw;
+        top: calc(-0.5*var(--nav-hover));
+        left: 3vw;
         height: calc(var(--nav-hover));
         width: calc(var(--nav-hover));
         background-image: url('img/hover/drawing.jpg');
@@ -237,7 +246,7 @@ nav {
         transition: margin 0.2s ease-in-out;
     }
     nav:hover .nav-item {
-        margin-bottom: 8vh;
+        margin-bottom: 9vh;
     }
     nav:hover .architecture {
         margin-right: 40vw;
