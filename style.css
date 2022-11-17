@@ -24,7 +24,8 @@ time, mark, audio, video {
 
     --nav-hover: calc(5*var(--rvv));
     --project-img-max: calc(5*var(--rvv));
-    --grid: calc(0.9*var(--rvv));
+
+    --divider: calc(1.1*var(--rvv));
 
     --photography-hover: red;
     --architecture-hover: red;
@@ -150,9 +151,8 @@ body {
             margin-left: 5vw;
             margin-right: 5vw;
             display: grid;
-            grid-template-columns: repeat(2, 1fr) calc(1.2*var(--grid)) repeat(2, 1fr);
-            grid-template-rows: repeat(2, 2fr) 0.5fr repeat(2, 2fr) 0.5fr repeat(2, 2fr) 0.5fr repeat(2, 2fr);
-            row-gap: calc(var(--grid));
+            grid-template-columns: repeat(2, 1fr) var(--divider) repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr) var(--divider) repeat(2, 1fr) var(--divider) repeat(2, 1fr) var(--divider) repeat(2, 1fr);
             grid-template-areas:
                 "project-1              project-1           y-divider       project-5       project-5"
                 "project-1              project-1           y-divider       project-5       project-5"
@@ -168,13 +168,6 @@ body {
             
         }
 
-        .y-divider:hover {
-            border: 1px solid red;
-        }
-        .x-divider:hover {
-            border: 1px solid blue;
-        }
-
         .project {
             padding: calc(0.5*var(--rvv));
             width: 30vw;
@@ -185,15 +178,16 @@ body {
             cursor: pointer;
         }
 
-        .project:hover {
-            border: 1px solid red;
-        }
-
         .left-column {
             justify-self: end;
         }
+
+        .right-column {
+            margin-top: var(--divider);
+        }
         
         .bg {
+            position: relative;
             z-index: 1;
             width: 30vw;
             max-width: var(--project-img-max);
@@ -204,11 +198,17 @@ body {
             align-items: center;
         }
 
-        .bg:hover {
-            border: 1px solid red;
+        .project-title {
+            z-index: 2;
+            font-size: calc(0.6*var(--rvv));
+            position: relative;
+            top: 70%;
+            font-weight: 100;
         }
 
+        
         .bg::before {
+            z-index: -1;
             position: absolute;
             top: calc(0.5*var(--rvv));
             left: calc(0.5*var(--rvv));
@@ -220,17 +220,7 @@ body {
             background-image: url('img/hover/photography.jpg');
             background-size: cover;
         }
-
-        .bg:hover::before {
-            display: none;
-        }
-
-        .project-title:hover {
-            font-size: calc(0.8*var(--rvv));
-            letter-spacing: calc(0.5*var(--rvv));
-            border: 1px solid red;
-        }
-
+    
         .project-1 {
             grid-area: project-1;
         }
@@ -271,8 +261,6 @@ body {
         .x-divider-6 {
             grid-area: x-divider-6;
         }
-
-
 
         .third-derivative::before {
             
@@ -415,5 +403,35 @@ body {
         nav:hover .drawing {
             margin-right: 40vw;
         }
+
+    /* main content: */
+    .y-divider:hover {
+        border: 1px solid red;
+    }
+    .x-divider:hover {
+        border: 1px solid blue;
+    }
+    .project:hover {
+        border: 1px solid red;
+    }
+    .bg:hover {
+        border: 1px solid red;
+    }
+    .bg::before {
+        z-index: 1;
+    }
+    .bg:hover::before {
+        display: none;
+    }
+    .project-title {
+        color: transparent;
+        position: initial;
+    }
+    .project-title:hover {
+        color: black;
+        font-size: calc(0.8*var(--rvv));
+        letter-spacing: calc(0.5*var(--rvv));
+        border: 1px solid red;
+    }
 
 }

@@ -38,7 +38,7 @@ const Render = (function() {
                     </div>
                 </div>
                 <div class="y-divider"></div>
-                <div class="project project-5 offroad">
+                <div class="project project-5 right-column offroad">
                     <div class="bg">
                         <span class="project-title">
                             OFFROAD
@@ -46,7 +46,7 @@ const Render = (function() {
                     </div>
                 </div>
                 <div class="x-divider x-divider-5"></div>
-                <div class="project project-6 greenwood">
+                <div class="project project-6 right-column greenwood">
                     <div class="bg">
                         <span class="project-title">
                             greenwood
@@ -54,7 +54,7 @@ const Render = (function() {
                     </div>
                 </div>
                 <div class="x-divider x-divider-6"></div>
-                <div class="project project-7 dirty-delta">
+                <div class="project project-7 right-column dirty-delta">
                     <div class="bg">
                         <span class="project-title">
                             dirty delta
@@ -63,6 +63,8 @@ const Render = (function() {
                 </div>
             </div>
         `;
+
+        Effects.randomizeMargins('.project');
 
     }
 
@@ -229,11 +231,24 @@ const Effects = (function() {
         return '#' + Math.floor(Math.random()*16777215).toString(16);
     }
 
+    function randomizeMargins(selector) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => {
+            const top = Math.floor(Math.random() * 60);
+            const right = Math.floor(Math.random() * 10);
+            const bottom = Math.floor(Math.random() * 3);
+            const left = Math.floor(Math.random() * 10);
+            element.style.margin = `${top}px ${right}px ${bottom}px ${left}px`;
+        })
+        
+    }
+
     addBorderEffectListeners('header *');
 
     return {
         getRandomColor,
-        addBorderEffectListeners
+        addBorderEffectListeners,
+        randomizeMargins
     }
 
 })();
