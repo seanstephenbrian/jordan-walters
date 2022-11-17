@@ -85,6 +85,8 @@ function renderNav() {
                 logoImg.src = 'img/logo/round.png';
                 logoContainer.appendChild(logoImg);
 
+    assignRandomColorsToNavElements();
+
     // add click listener to close icon and JW icon:
     closeIcon.addEventListener('click', closeNav);
     logoImg.addEventListener('click', closeNav);
@@ -99,6 +101,22 @@ function renderNav() {
 
 }
 
+function assignRandomColorsToNavElements() {
+    const root = document.documentElement;
+
+    root.style.setProperty('--photography-hover', getRandomColor());
+    root.style.setProperty('--architecture-hover', getRandomColor());
+    root.style.setProperty('--sculpture-hover', getRandomColor());
+    root.style.setProperty('--furniture-hover', getRandomColor());
+    root.style.setProperty('--drawing-hover', getRandomColor());
+
+    root.style.setProperty('--photography-hover-border', getRandomColor());
+    root.style.setProperty('--architecture-hover-border', getRandomColor());
+    root.style.setProperty('--sculpture-hover-border', getRandomColor());
+    root.style.setProperty('--furniture-hover-border', getRandomColor());
+    root.style.setProperty('--drawing-hover-border', getRandomColor());
+}
+
 function closeNav() {
     const nav = document.querySelector('nav');
     nav.remove();
@@ -110,7 +128,12 @@ function closeNav() {
 }
 
 (function addInitialListeners() {
-    // add click listener to header logo:
-    const logo = document.querySelector('.logo');
+    // add click listener to header elements:
+    const logo = document.querySelector('.logo-container');
     logo.addEventListener('click', renderNav);
+    const jordan = document.querySelector('.jordan');
+    jordan.addEventListener('click', renderNav);
+    const walters = document.querySelector('.walters');
+    walters.addEventListener('click', renderNav);
+
 })();
