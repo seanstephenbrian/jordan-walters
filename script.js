@@ -444,11 +444,11 @@ const Render = (function() {
         // hide back button if index is 1, make sure it is visible if not:
         const back = document.querySelector('.back');
         if (nextIndex === 1) {
-            
             back.classList.add('hide');
         } else {
             back.classList.remove('hide');
         }
+        
         // hide forward button if index = projectLength, make sure it is visible if not: 
         const forward = document.querySelector('.forward');
         if (nextIndex === projectLength) {
