@@ -128,6 +128,10 @@ const Render = (function() {
     // home:
     function home() {
         const main = document.querySelector('main');
+
+        // reset <main> classList to empty:
+        main.classList.remove('project-page');
+
         main.innerHTML = `
             <div class="home-projects">
                 <div class="project project-1 left-column third-derivative">
