@@ -152,8 +152,9 @@ main {
                 }
 
     /* main content */
-    main {
-        overflow-x: hidden;
+    main.home {
+        display: flex;
+        flex-direction: column;
     }
 
         /* home */
