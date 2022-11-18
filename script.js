@@ -129,8 +129,9 @@ const Render = (function() {
     function home() {
         const main = document.querySelector('main');
 
-        // reset <main> classList to empty:
+        // reset <main> classList to empty, then add 'home' class:
         main.classList.remove('project-page');
+        main.classList.add('home');
 
         main.innerHTML = `
             <div class="home-projects">
@@ -342,10 +343,13 @@ const Render = (function() {
         jordan.addEventListener('click', home);
         walters.addEventListener('click', home);
 
-        // clear contents on main section:
+        // clear contents of main section:
         const main = document.querySelector('main');
-        main.classList.add('project-page');
         main.innerHTML = '';
+
+        // reset <main> classList to empty, then add 'project-page' class:
+        main.classList.remove('home');
+        main.classList.add('project-page');
 
         // create page elements:
 
