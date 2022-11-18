@@ -191,12 +191,23 @@ const Render = (function() {
         Effects.randomizeMargins('.project');
         // Effects.assignColorsToPageElements();
 
-        // add click listeners for project page renders:
-        const thirdDerivative = document.querySelector('.third-derivative');
-        thirdDerivative.addEventListener('click', () => {
-            project('third derivative', 'third-derivative', 40);
-        })
+        // add click listeners for photo project pages:
+        addProjectClickListener('third derivative', 'third-derivative', 40);
+        addProjectClickListener('remainder', 'remainder', 20);
+        addProjectClickListener('one by one', 'one-by-one', 6);
+        addProjectClickListener('druids', 'druids', 24);
+        addProjectClickListener('offroad', 'offroad', 10);
+        addProjectClickListener('greenwood', 'greenwood', 17);
+        addProjectClickListener('dirty delta', 'dirty-delta', 19);
 
+    }
+
+    // method to add a click listener which renders a project page:
+    function addProjectClickListener(title, path, length) {
+        const link = document.querySelector(`.${path}`);
+        link.addEventListener('click', () => {
+            project(title, path, length);
+        });
     }
 
     // nav:
