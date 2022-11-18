@@ -46,6 +46,13 @@ const Effects = (function() {
         }
     }
 
+    function assignColorToPageTitle() {
+        if (window.innerWidth > 749) {
+            const pageTitle = document.querySelector('.page-title');
+            pageTitle.style.setProperty('--page-title-hover', getRandomColor());
+        }
+    }
+
     // function assignColorsToPageElements() {
     //     if (window.innerWidth > 749) {
     //         const main = document.querySelector('main');
@@ -109,6 +116,7 @@ const Effects = (function() {
         addBorderEffectListeners,
         randomizeMargins,
         assignColorsToNavElements,
+        assignColorToPageTitle
         // assignColorsToPageElements
     }
 
@@ -183,6 +191,12 @@ const Render = (function() {
         Effects.randomizeMargins('.project');
         // Effects.assignColorsToPageElements();
 
+        // add click listeners for project page renders:
+        const thirdDerivative = document.querySelector('.third-derivative');
+        thirdDerivative.addEventListener('click', () => {
+            project('third derivative', 'third-derivative', 40);
+        })
+
     }
 
     // nav:
@@ -245,35 +259,147 @@ const Render = (function() {
                     logoImg.src = 'img/logo/round.png';
                     logoContainer.appendChild(logoImg);
 
-        Effects.assignColorsToNavElements();
-
         // add click listener to close icon and JW icon:
         closeIcon.addEventListener('click', closeNav);
         logoImg.addEventListener('click', closeNav);
 
+        function closeNav() {
+            const nav = document.querySelector('nav');
+            nav.remove();
+    
+            // show main content again:
+            const main = document.querySelector('main');
+            main.style.display = '';
+    
+            // allow y-axis scrolling again:
+            const html = document.querySelector('html');
+            html.style.overflowY = '';
+            const body = document.querySelector('body');
+            body.style.overflowY = '';
+        
+        }
+
+        // assign random :hover border colors to nav elements, add border effect to only the icons:
+        Effects.assignColorsToNavElements();
         Effects.addBorderEffectListeners('.close-icon');
         Effects.addBorderEffectListeners('.nav-logo');
 
+        // hide y overflow:
         const html = document.querySelector('html');
         html.style.overflowY = 'hidden';
         const body = document.querySelector('body');
         body.style.overflowY = 'hidden';
     }
 
-    function closeNav() {
-        const nav = document.querySelector('nav');
-        nav.remove();
+    // project:
+    function project(projectTitle, projectPath, projectLength) {
 
-        // show main content again:
+        // clear contents on main section:
         const main = document.querySelector('main');
-        main.style.display = '';
+        main.classList.add('project-page');
+        main.innerHTML = '';
 
-        // allow y-axis scrolling again:
-        const html = document.querySelector('html');
-        html.style.overflowY = '';
-        const body = document.querySelector('body');
-        body.style.overflowY = '';
-    
+        // create page elements:
+
+        const title = document.createElement('div');
+        title.className = 'page-title';
+        title.textContent = projectTitle;
+        main.appendChild(title);
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'wrapper';
+        main.appendChild(wrapper);
+
+            // create containers for 'back' icon, image, and 'forward' icon:
+            const backContainer = document.createElement('div');
+            backContainer.className = 'back-container';
+            wrapper.appendChild(backContainer);
+
+                const back = document.createElement('img');
+                back.classList.add('back', 'hide');
+                back.src = 'img/svg/back.svg';
+                back.setAttribute('alt', 'previous photo');
+                backContainer.appendChild(back);
+
+                // create empty div to hook previous image preview onto:
+                const previous = document.createElement('div');
+                previous.className = 'previous';
+                backContainer.appendChild(previous);
+                
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'image-container';
+            wrapper.appendChild(imageContainer);
+
+                const image = document.createElement('img');
+                image.className = 'image';
+                // load the first project image:
+                image.setAttribute('src', `img/projects/${projectPath}/1.jpg`);
+                // set dataset-index and dataset-length which will be used by the changePhoto function:
+                image.dataset.project = projectPath;
+                image.dataset.index = 1;
+                image.dataset.length = projectLength;
+                imageContainer.appendChild(image);
+
+            const forwardContainer = document.createElement('div');
+            forwardContainer.className = 'forward-container';
+            wrapper.appendChild(forwardContainer);
+
+                const forward = document.createElement('img');
+                forward.className = 'forward';
+                forward.src = 'img/svg/forward.svg';
+                forward.setAttribute('alt', 'next photo');
+                forwardContainer.appendChild(forward);
+
+                // create empty div to hook next image preview onto:
+                const next = document.createElement('div');
+                next.className = 'next';
+                forwardContainer.appendChild(next);
+
+        // add listeners to forward/back icons:
+        back.addEventListener('click', () => {
+            changeImage('back');
+        });
+        forward.addEventListener('click', () => {
+            changeImage('forward');
+        })
+        
+        // add effects to page title: 
+        Effects.addBorderEffectListeners('.page-title');
+        title.addEventListener('mouseover', () => {
+            Effects.assignColorToPageTitle();
+        });
+    }
+
+    function changeImage(direction) {
+        const image = document.querySelector('.image');
+        const projectPath = image.dataset.project;
+        const currentIndex = parseInt(image.dataset.index);
+        const projectLength = parseInt(image.dataset.length);
+        let nextIndex;
+        if (direction === 'back') {
+            nextIndex = currentIndex - 1;
+        } else if (direction === 'forward') {
+            nextIndex = currentIndex + 1;
+        }
+        image.src = `img/projects/${projectPath}/${nextIndex}.jpg`;
+        image.dataset.index = nextIndex;
+
+        // hide back button if index is 1, make sure it is visible if not:
+        const back = document.querySelector('.back');
+        if (nextIndex === 1) {
+            
+            back.classList.add('hide');
+        } else {
+            back.classList.remove('hide');
+        }
+        // hide forward button if index = projectLength, make sure it is visible if not: 
+        const forward = document.querySelector('.forward');
+        if (nextIndex === projectLength) {
+            forward.classList.add('hide');
+        } else {
+            forward.classList.remove('hide');
+        }
+
     }
 
     return {
