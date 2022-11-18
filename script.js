@@ -200,7 +200,7 @@ const Render = (function() {
         addProjectClickListener('one by one', '2017 - ongoing', 'one-by-one', 6);
         addProjectClickListener('druids', '2016 - 2019', 'druids', 24);
         addProjectClickListener('offroad', '2020', 'offroad', 10);
-        addProjectClickListener('greenwood', '2019', 'greenwood', 17);
+        addProjectClickListener('greenwood', '2019', 'greenwood', 15);
         addProjectClickListener('dirty delta', '2018', 'dirty-delta', 19);
 
     }

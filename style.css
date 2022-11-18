@@ -323,7 +323,7 @@ main {
         max-width: 90vw;
         width: 1000px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 10px;
     }
 
