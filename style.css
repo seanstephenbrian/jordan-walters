@@ -583,7 +583,8 @@ footer {
         display: none;
     }
     .project-title {
-        color: transparent;
+        z-index: 0;
+        color: rgba(0, 0, 0, 0.245);
         position: initial;
     }
     .project-title:hover {
