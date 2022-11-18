@@ -413,10 +413,10 @@ const Render = (function() {
                 forwardContainer.appendChild(next);
 
         // add listeners to forward/back icons:
-        back.addEventListener('click', () => {
+        backContainer.addEventListener('click', () => {
             changeImage('back');
         });
-        forward.addEventListener('click', () => {
+        forwardContainer.addEventListener('click', () => {
             changeImage('forward');
         })
         
