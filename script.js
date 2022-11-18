@@ -5,7 +5,8 @@ const Effects = (function() {
         const element = e.target;
 
         element.style.color = getRandomColor();
-        element.style.border = '0.5px solid ' + getRandomColor();
+        const num = (Math.floor(Math.random() * 11) + 5) / 10;
+        element.style.border = num + 'px solid ' + getRandomColor();
 
         setTimeout(() => {
             element.style.color = '';
