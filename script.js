@@ -188,25 +188,28 @@ const Render = (function() {
             </div>
         `;
 
+        // add dynamic border effects to header & main elements:
+        Effects.addBorderEffectListeners('header *');
+        Effects.addBorderEffectListeners('main *');
+        // randomize margins around project preview images:
         Effects.randomizeMargins('.project');
-        // Effects.assignColorsToPageElements();
 
         // add click listeners for photo project pages:
-        addProjectClickListener('third derivative', 'third-derivative', 40);
-        addProjectClickListener('remainder', 'remainder', 20);
-        addProjectClickListener('one by one', 'one-by-one', 6);
-        addProjectClickListener('druids', 'druids', 24);
-        addProjectClickListener('offroad', 'offroad', 10);
-        addProjectClickListener('greenwood', 'greenwood', 17);
-        addProjectClickListener('dirty delta', 'dirty-delta', 19);
+        addProjectClickListener('third derivative', '2022', 'third-derivative', 40);
+        addProjectClickListener('remainder', '2020', 'remainder', 20);
+        addProjectClickListener('one by one', '2017 - ongoing', 'one-by-one', 6);
+        addProjectClickListener('druids', '2016 - 2019', 'druids', 24);
+        addProjectClickListener('offroad', '2020', 'offroad', 10);
+        addProjectClickListener('greenwood', '2019', 'greenwood', 17);
+        addProjectClickListener('dirty delta', '2018', 'dirty-delta', 19);
 
     }
 
     // method to add a click listener which renders a project page:
-    function addProjectClickListener(title, path, length) {
+    function addProjectClickListener(title, date, path, length) {
         const link = document.querySelector(`.${path}`);
         link.addEventListener('click', () => {
-            project(title, path, length);
+            project(title, date, path, length);
         });
     }
 
@@ -300,10 +303,19 @@ const Render = (function() {
         html.style.overflowY = 'hidden';
         const body = document.querySelector('body');
         body.style.overflowY = 'hidden';
+
+        // add click listeners to nav items:
+        // (for now the only one is 'photography', which just re-renders the home view:)
+        const photoLink = document.querySelector('.photography');
+        photoLink.addEventListener('click', () => {
+            home();
+            closeNav();
+        });
+
     }
 
     // project:
-    function project(projectTitle, projectPath, projectLength) {
+    function project(projectTitle, projectDate, projectPath, projectLength) {
 
         // clear contents on main section:
         const main = document.querySelector('main');
@@ -316,6 +328,11 @@ const Render = (function() {
         title.className = 'page-title';
         title.textContent = projectTitle;
         main.appendChild(title);
+
+            const date = document.createElement('div');
+            date.className = 'date';
+            date.textContent = projectDate;
+            title.appendChild(date);
 
         const wrapper = document.createElement('div');
         wrapper.className = 'wrapper';
@@ -425,9 +442,7 @@ const Render = (function() {
         // render homepage:
         Render.home();
 
-        // add dynamic border effects to header & main elements:
-        Effects.addBorderEffectListeners('header *');
-        Effects.addBorderEffectListeners('main *');
+        
 
         // add click listener to header elements:
         const logo = document.querySelector('.logo-container');
