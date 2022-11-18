@@ -627,6 +627,7 @@ footer {
         }
 
     .page-title:hover {
+        text-align: right;
         font-style: italic;
         font-weight: 100;
         letter-spacing: calc(0.3*var(--rvv));
