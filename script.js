@@ -194,6 +194,14 @@ const Render = (function() {
         // randomize margins around project preview images:
         Effects.randomizeMargins('.project');
 
+        // add click listener to header elements:
+        const logo = document.querySelector('.logo-container');
+        logo.addEventListener('click', nav);
+        const jordan = document.querySelector('.jordan');
+        jordan.addEventListener('click', nav);
+        const walters = document.querySelector('.walters');
+        walters.addEventListener('click', nav);
+
         // add click listeners for photo project pages:
         addProjectClickListener('third derivative', '2022', 'third-derivative', 40);
         addProjectClickListener('remainder', '2020', 'remainder', 20);
@@ -317,6 +325,19 @@ const Render = (function() {
     // project:
     function project(projectTitle, projectDate, projectPath, projectLength) {
 
+        // remove header click listeners...
+        const logo = document.querySelector('.logo-container');
+        logo.removeEventListener('click', nav);
+        const jordan = document.querySelector('.jordan');
+        jordan.removeEventListener('click', nav);
+        const walters = document.querySelector('.walters');
+        walters.removeEventListener('click', nav);
+
+        // and add new header click listeners to take you directly home:
+        logo.addEventListener('click', home);
+        jordan.addEventListener('click', home);
+        walters.addEventListener('click', home);
+
         // clear contents on main section:
         const main = document.querySelector('main');
         main.classList.add('project-page');
@@ -431,24 +452,10 @@ const Render = (function() {
     }
 
     return {
-        home,
-        nav
+        home
     }
 
 })();
 
 // on page load:
-(function() {
-        // render homepage:
-        Render.home();
-
-        
-
-        // add click listener to header elements:
-        const logo = document.querySelector('.logo-container');
-        logo.addEventListener('click', Render.nav);
-        const jordan = document.querySelector('.jordan');
-        jordan.addEventListener('click', Render.nav);
-        const walters = document.querySelector('.walters');
-        walters.addEventListener('click', Render.nav);
-})();
+Render.home();
